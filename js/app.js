@@ -67,22 +67,4 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("Geolocation nicht unterstützt");
         alert("Ihr Browser unterstützt keine Standortermittlung.");
     }
-
-    // Beispiel-Locations
-    const locations = [
-        {
-            name: "Mainzer Dom",
-            coordinates: [49.9996, 8.2742],
-            description: "Bedeutendste Kathedrale in Mainz"
-        }
-    ];
-
-    // Marker hinzufügen
-    locations.forEach(loc => {
-        const marker = L.marker(loc.coordinates).addTo(map);
-        marker.bindPopup(`
-            <h3>${loc.name}</h3>
-            <p>${loc.description}</p>
-        `);
-    });
 });
