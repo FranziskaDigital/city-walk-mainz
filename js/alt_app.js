@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Benutzer-Position-Marker-Stil (Det - Mainzelmännchen)
     const userIcon = L.icon({
         iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Mainzelmaennchen_Det_Graffiti_am_MNK.jpg',
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
-        popupAnchor: [0, -20]
+        iconSize: [40, 40], // Anpassen Sie die Größe nach Bedarf
+        iconAnchor: [20, 20], // Anpassen Sie den Anchor nach Bedarf
+        popupAnchor: [0, -20] // Anpassen Sie den Popup-Anchor nach Bedarf
     });
 
     let userMarker = null;
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Benutzerposition anzeigen
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(position => {
-            if (!isDragging) { 
+            if (!isDragging) { // Nur aktualisieren, wenn nicht gezogen wird
                 const { latitude, longitude } = position.coords;
                 
                 if (userMarker) {
@@ -40,14 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     userMarker = L.marker([latitude, longitude], { 
                         icon: userIcon,
-                        draggable: true 
+                        draggable: true // Marker verschiebbar machen
                     }).addTo(map);
                     
                     // Event-Listener für Drag-Ende
                     userMarker.on("dragend", (e) => {
                         const newLatLng = e.target.getLatLng();
                         console.log("Neue Position:", newLatLng);
-                        map.setView(newLatLng, map.getZoom()); 
+                        map.setView(newLatLng, map.getZoom()); // Karte auf neue Position zentrieren
                     });
 
                     // Cursor-Feedback
@@ -74,24 +74,4 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("Geolocation nicht unterstützt");
         alert("Ihr Browser unterstützt keine Standortermittlung.");
     }
-
-    // Vollbild-Funktion
-    const fullscreenToggle = document.getElementById('fullscreen-toggle');
-    let isFullscreen = false;
-
-    fullscreenToggle.addEventListener('click', () => {
-        if (!isFullscreen) {
-            // Vollbild-Modus aktivieren
-            document.getElementById('map').classList.add('fullscreen');
-            map.invalidateSize();
-            isFullscreen = true;
-            fullscreenToggle.textContent = '🗺️ Normal';
-        } else {
-            // Vollbild-Modus deaktivieren
-            document.getElementById('map').classList.remove('fullscreen');
-            map.invalidateSize();
-            isFullscreen = false;
-            fullscreenToggle.textContent = '🗺️ Vollbild';
-        }
-    });
 });

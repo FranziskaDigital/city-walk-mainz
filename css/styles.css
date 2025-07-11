@@ -121,3 +121,14 @@ button:hover {
     animation: pulse-green 1s infinite;
     box-shadow: 0 0 15px rgba(46, 204, 113, 0.9); /* Verstärkter Schatten während Drag */
 }
+
+/* Vollbild-Modus */
+#map.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 1000; /* Sicherstellen, dass die Karte über anderen Elementen liegt */
+}
