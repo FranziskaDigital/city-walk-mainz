@@ -7,9 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // OpenStreetMap-Tiles hinzufügen
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap",
+        attribution: "© OpenStreetMap",
         subdomains: ["a", "b", "c"]
     }).addTo(map);
+
+    // Marker aus locations.js laden
+    locations.forEach(location => {
+        L.marker([location.lat, location.lon])
+            .bindPopup(`<b>${location.name}</b><br>${location.description}<br><img src="${location.image}" width="200">`)
+            .addTo(map);
+    });
 
     // Benutzer-Position-Marker-Stil (grün)
     const userIcon = L.divIcon({
