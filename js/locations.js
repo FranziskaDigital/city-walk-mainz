@@ -2,8 +2,8 @@ const locations = [
     {
         id: 1,
         name: "Mainzer Dom",
-        description: "Kathedrale von Mainz",
-        image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Mainzer_Dom_abends.jpg",
+        description: "Kathedrale von Mainz, Bild: Mainzer Dom mit Mollerschem Ei (1868)",
+        image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Dom_mollerkuppel_1868.jpg",
         lat: 49.9996,
         lon: 8.2742
     },
