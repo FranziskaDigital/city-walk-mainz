@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Benutzer-Position-Marker-Stil (Det - Mainzelmännchen)
     const userIcon = L.icon({
-        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Mainzelmaennchen_Det_Graffiti_am_MNK.jpg',
+        iconUrl: 'img/Det.png',
         iconSize: [40, 40],
         iconAnchor: [20, 20],
         popupAnchor: [0, -20]
