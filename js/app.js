@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Benutzer-Position-Marker-Stil (grün)
     const userIcon = L.divIcon({
-        iconSize: [25, 41],
+        iconSize: [20, 35],
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         html: `<div style="background-color: #27ae60; width: 25px; height: 41px; border-radius: 50%; cursor: move;"></div>`
