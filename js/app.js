@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
             .addTo(map);
     });
 
-    // Benutzer-Position-Marker-Stil (grün)
-    const userIcon = L.divIcon({
-        iconSize: [20, 35],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        html: `<div style="background-color: #27ae60; width: 25px; height: 41px; cursor: move;"></div>`
+    // Benutzer-Position-Marker-Stil (Det - Mainzelmännchen)
+    const userIcon = L.icon({
+        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Mainzelmaennchen_Det_Graffiti_am_MNK.jpg',
+        iconSize: [40, 40], // Anpassen Sie die Größe nach Bedarf
+        iconAnchor: [20, 20], // Anpassen Sie den Anchor nach Bedarf
+        popupAnchor: [0, -20] // Anpassen Sie den Popup-Anchor nach Bedarf
     });
 
     let userMarker = null;
