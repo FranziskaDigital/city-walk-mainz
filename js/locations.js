@@ -43,7 +43,7 @@ const locations = [
         id: 7,
         name: "Schillerplatz",
         description: "Marktplatz (seit Mittelalter)<a href='https://de.wikipedia.org/wiki/Schillerplatz_(Mainz)'target='_blank'><br>weitere Infos</a>.",
-        image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Wilhelm_Walther%2C_Mainz%2C_Schillerplatz%2C_Befreiungsdenkmal%2C_Elkan%2C_2-029-030-5639.tiff",
+        image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Bundesarchiv_Bild_102-10160%2C_Mainz%2C_Enth%C3%BCllung_des_Befreiungs-Denkmals.jpg",
         lat: 49.998064,
         lon: 8.268011
     },{
