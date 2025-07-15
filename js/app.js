@@ -38,12 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Stolperstein-Icon erstellen
-    const stolpersteinIcon = L.icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    const greenMarker = L.divIcon({
+        className: 'custom-green-marker',
+        html: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="green"><circle cx="12" cy="12" r="10"/></svg>',
         iconSize: [24, 24],
         iconAnchor: [12, 12],
         popupAnchor: [0, -12]
-    });
+      });
+      
+      // Marker mit grünem SVG
+      L.marker([51.5, -0.09], { icon: greenMarker }).addTo(map);
 
     let userMarker = null;
     let isDragging = false;
@@ -135,17 +139,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (coordMatch) {
                         const lng = parseFloat(coordMatch[1]);
                         const lat = parseFloat(coordMatch[2]);
-                        
-                        const marker = L.marker([lat, lng], { icon: stolpersteinIcon })
+        
+                        // Verwende den grünen Marker
+                        const marker = L.marker([lat, lng], { icon: greenMarker })
                             .bindPopup(`
                                 <div class="popup-content">
-                                    <h3>${result.StolpersteinLabel.value}</h3>
-                                    <p><strong>Stolperstein</strong></p>
-                                    <p>Koordinaten: ${lat.toFixed(5)}, ${lng.toFixed(5)}</p>
+                                    <p><strong>${result.StolpersteinLabel.value}</strong></p>
                                     <a href="${result.Stolperstein.value}" target="_blank">Wikidata-Eintrag</a>
                                 </div>
                             `);
-                        
+        
                         stolpersteineLayer.addLayer(marker);
                     }
                 }
@@ -157,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /* Erweiterte Wikidata-Abfrage für Museen, Schulen und Parks */
+    
     async function loadWikidataEntities() {
         const endpoint = 'https://query.wikidata.org/sparql';
 
@@ -180,11 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const popupContent = `
                         <div class="popup-content">
-                            <h3>${result.entityLabel.value}</h3>
-                            <p><strong>Typ:</strong> ${result.entityTypeLabel.value}</p>
-                            <p>${result.description.value}</p>
-                            ${image ? `<img src="${image}" width="200" style="max-width: 100%; height: auto;">` : ''}
-                            ${wikipedia ? `<p><a href="${wikipedia}" target="_blank">Wikipedia-Artikel</a></p>` : ''}
+                            <p><strong>${result.entityLabel.value}</strong></p>
                             <p><a href="${result.entity.value}" target="_blank">Wikidata-Eintrag</a></p>
                         </div>
                     `;
